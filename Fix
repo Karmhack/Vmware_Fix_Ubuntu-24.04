@@ -1,12 +1,7 @@
-sudo apt update
-sudo apt install -y build-essential p7zip-full
-
-Install WMware Workstation Pro
-Dowloads at : support Broadcom
-sudo ./VMware-Workstation-Full-17.5.2-23775571.x86_64.bundle 
-
-wget https://github.com/mkubecek/vmware-host-modules/archive/workstation-17.5.2.tar.gz
-tar -xzf workstation-17.5.2.tar.gz && cd vmware-host-modules-workstation-17.5.2
-tar -cf vmmon.tar vmmon-only && tar -cf vmnet.tar vmnet-only
-sudo cp -v vmmon.tar vmnet.tar /usr/lib/vmware/modules/source/
-sudo vmware-modconfig --console --install-all
+cd /tmp
+sudo bash
+git clone https://github.com/mkubecek/vmware-host-modules.git
+cd vmware-host-modules
+git switch workstation-17.5.1
+make
+make install
